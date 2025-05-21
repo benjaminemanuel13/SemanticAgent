@@ -12,7 +12,8 @@ namespace SemanticAgent.Business.Services
 {
     public class Agent : IAgent
     {
-        public static string OpenAIKey { get; set; }
+        public static string OpenAIKey { get; set; } = string.Empty;
+
         private Kernel kernel;
 
         public Agent()
