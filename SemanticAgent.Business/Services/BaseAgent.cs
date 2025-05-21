@@ -13,6 +13,7 @@ namespace SemanticAgent.Business.Services
     public abstract class BaseAgent : IAgent
     {
         public static string OpenAIKey { get; set; } = string.Empty;
+        public static string Model { get; set; } = "gpt-4";
 
         protected Kernel kernel;
 
@@ -26,7 +27,7 @@ namespace SemanticAgent.Business.Services
         {
             kernel = Kernel
                 .CreateBuilder()
-                .AddOpenAIChatCompletion("gpt-4", OpenAIKey)
+                .AddOpenAIChatCompletion(Model, OpenAIKey)
                 .Build();
 
             return kernel;

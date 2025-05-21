@@ -24,7 +24,7 @@ namespace SemanticAgent
             var running = true;
 
             while (running) {
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("What can I do for you?");
                 Console.Write(">");
 
                 var input = Console.ReadLine();
@@ -36,7 +36,7 @@ namespace SemanticAgent
                 }
 
                 var res = await agent.Ask(input);
-                Console.WriteLine(res);
+                Console.WriteLine(res + "\r\n");
             }
         }
     }
