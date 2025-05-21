@@ -22,7 +22,7 @@ namespace SemanticAgent.Business.Services
             AddPlugins();
         }
 
-        public Kernel GetKernel()
+        private Kernel GetKernel()
         {
             kernel = Kernel
                 .CreateBuilder()
