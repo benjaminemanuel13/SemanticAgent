@@ -16,6 +16,7 @@ Prompt I gave:
 ![image](https://github.com/user-attachments/assets/342b5990-7539-45a3-82b5-bc2d7b42bdf0)
 
 Result:
-![image](https://github.com/user-attachments/assets/bc50c016-1807-4d69-a18b-8f4ce7903cb9)
+![image](https://github.com/user-attachments/assets/f7961992-b428-4022-a1c4-17133fae92ee)
+
 
 
