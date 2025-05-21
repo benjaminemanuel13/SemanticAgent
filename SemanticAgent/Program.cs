@@ -20,7 +20,9 @@ namespace SemanticAgent
                     logging.ClearProviders();
                 })
                 .ConfigureServices(services => {
-                    services.AddKeyedTransient<TimeAndWeatherAgent>("TimeAndWeather");
+                    services.AddKeyedTransient<IAgent, TimeAndWeatherAgent>("TimeAndWeather");
+                    services.AddKeyedTransient<IAgent, HumanResourcesAgent>("HumanResources");
+
                     services.AddHostedService<Worker>();
                 }).Build()
                 .Run();

@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.53.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SemanticAgent.Common\SemanticAgent.Common.csproj" />
+  </ItemGroup>
+
 </Project>

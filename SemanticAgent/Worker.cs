@@ -14,7 +14,7 @@ namespace SemanticAgent
     {
         private readonly IAgent agent;
 
-        public Worker([FromKeyedServices("TimeAndWeather")] TimeAndWeatherAgent agent)
+        public Worker([FromKeyedServices("HumanResources")] IAgent agent)
         {
             this.agent = agent;
         }
