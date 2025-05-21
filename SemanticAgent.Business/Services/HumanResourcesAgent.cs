@@ -24,7 +24,6 @@ namespace SemanticAgent.Business.Services
         }
         protected override void AddPlugins()
         {
-            // Add any HR-specific plugins here if needed
             kernel.ImportPluginFromType<EmailPlugin>();
             kernel.ImportPluginFromType<StaffLookupPlugin>();
         }
