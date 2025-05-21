@@ -14,7 +14,8 @@ Have added another Agent, a Human Resources Agent that looks up staff details us
 
 
 Prompt I gave: 
-![image](https://github.com/user-attachments/assets/342b5990-7539-45a3-82b5-bc2d7b42bdf0) 
+![image](https://github.com/user-attachments/assets/fa47e787-4a85-4526-8ed2-b2d7d07dcaaa)
+
 
 Result: 
 ![image](https://github.com/user-attachments/assets/f7961992-b428-4022-a1c4-17133fae92ee) 
