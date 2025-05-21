@@ -10,7 +10,7 @@ namespace SemanticAgent
     {
         static void Main(string[] args)
         {
-            Agent.OpenAIKey = "<Place your Api Key Here>";
+            Agent.OpenAIKey = Environment.GetEnvironmentVariable("OPENAIKEY");
 
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices(services => {
