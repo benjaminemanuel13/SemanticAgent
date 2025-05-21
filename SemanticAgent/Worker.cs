@@ -34,9 +34,11 @@ namespace SemanticAgent
                     running = false;
                     break;
                 }
-
-                var res = await agent.Ask(input);
-                Console.WriteLine(res + "\r\n");
+                else
+                {
+                    var res = await agent.Ask(input);
+                    Console.WriteLine(res + "\r\n");
+                }
             }
         }
     }
