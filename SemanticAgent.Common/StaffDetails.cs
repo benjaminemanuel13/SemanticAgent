@@ -13,6 +13,7 @@ namespace SemanticAgent.Common
         public string Department { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
         public StaffDetails(string name, string position, string department, string email, string phoneNumber)
         {
             Name = name;
