@@ -13,15 +13,15 @@ namespace SemanticAgent.Plugins
         [KernelFunction]
         [Description("Gets the current weather for the specified city")]
         public string GetWeatherForCity(string cityName) =>
-        cityName switch
+        cityName.ToLower() switch
         {
-            "Boston" => "61 and rainy",
-            "London" => "55 and cloudy",
-            "Miami" => "80 and sunny",
-            "Paris" => "60 and rainy",
-            "Tokyo" => "50 and sunny",
-            "Sydney" => "75 and sunny",
-            "Tel Aviv" => "80 and sunny",
+            "boston" => "61 and rainy",
+            "london" => "55 and cloudy",
+            "miami" => "80 and sunny",
+            "paris" => "60 and rainy",
+            "tokyo" => "50 and sunny",
+            "sydney" => "75 and sunny",
+            "tel aviv" => "80 and sunny",
             _ => "31 and snowing",
         };
     }

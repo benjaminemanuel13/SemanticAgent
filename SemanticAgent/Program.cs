@@ -10,11 +10,11 @@ namespace SemanticAgent
     {
         static void Main(string[] args)
         {
-            Agent.OpenAIKey = Environment.GetEnvironmentVariable("OPENAIKEY");
+            BaseAgent.OpenAIKey = Environment.GetEnvironmentVariable("OPENAIKEY");
 
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices(services => {
-                    services.AddTransient<IAgent, Agent>();
+                    services.AddKeyedTransient<TimeAndWeatherAgent>("TimeAndWeather");
                     services.AddHostedService<Worker>();
                 }).Build()
                 .Run();

@@ -1,6 +1,5 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using SemanticAgent.Business.Interfaces;
 using SemanticAgent.Plugins;
 using System;
 using System.Collections.Generic;
@@ -10,18 +9,11 @@ using System.Threading.Tasks;
 
 namespace SemanticAgent.Business.Services
 {
-    public class Agent : IAgent
+    public class TimeAndWeatherAgent : BaseAgent
     {
-        public static string OpenAIKey { get; set; } = string.Empty;
+        public TimeAndWeatherAgent() : base() { }
 
-        private Kernel kernel;
-
-        public Agent()
-        {
-            kernel = GetKernel();
-        }
-
-        public async Task<string> Ask(string question = "Check current UTC time and return current weather in Boston city.")
+        public override async Task<string> Ask(string question)
         {
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
 
@@ -30,18 +22,10 @@ namespace SemanticAgent.Business.Services
             return result.ToString();
         }
 
-        public Kernel GetKernel()
+        protected override void AddPlugins()
         {
-            kernel = Kernel
-                .CreateBuilder()
-                .AddOpenAIChatCompletion("gpt-4", OpenAIKey)
-                .Build();
-
-            // Import sample plugins.
             kernel.ImportPluginFromType<TimePlugin>();
             kernel.ImportPluginFromType<WeatherPlugin>();
-
-            return kernel;
         }
     }
 }

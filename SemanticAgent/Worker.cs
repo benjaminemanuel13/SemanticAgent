@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using SemanticAgent.Business.Interfaces;
+using SemanticAgent.Business.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace SemanticAgent
     {
         private readonly IAgent agent;
 
-        public Worker(IAgent agent)
+        public Worker([FromKeyedServices("TimeAndWeather")] TimeAndWeatherAgent agent)
         {
             this.agent = agent;
         }
