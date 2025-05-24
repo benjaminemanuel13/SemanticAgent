@@ -2,8 +2,11 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
+using SemanticAgent.Agents.Agents;
+using SemanticAgent.Agents.ToolDefinitions;
 using SemanticAgent.Business.Interfaces;
 using SemanticAgent.Business.Services;
+using SemanticAgent.Common.ToolModels;
 using System;
 
 namespace SemanticAgent
@@ -23,7 +26,10 @@ namespace SemanticAgent
                     services.AddKeyedTransient<IAgent, TimeAndWeatherAgent>("TimeAndWeather");
                     services.AddKeyedTransient<IAgent, HumanResourcesAgent>("HumanResources");
 
-                    services.AddHostedService<Worker>();
+                    services.AddTransient<EmailAgent>();
+                    services.AddTransient<EmailToolDefinition>();
+
+                    services.AddHostedService<AgentWorker>();
                 }).Build()
                 .Run();
         }

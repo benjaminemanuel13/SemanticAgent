@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36109.1 d17.14
+VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticAgent", "SemanticAgent\SemanticAgent.csproj", "{D1015F0C-B7C5-4FDD-9179-CF30FB324898}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticAgent.Business", "SemanticAgent.Business\SemanticAgent.Business.csproj", "{C3AFDC74-B3DC-46F9-B689-61466A2842F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticAgent.Common", "SemanticAgent.Common\SemanticAgent.Common.csproj", "{91FD40A3-EEB3-4237-A9C4-DFA552DA308C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemanticAgent.Agents", "SemanticAgent.Agents\SemanticAgent.Agents.csproj", "{8C506E41-FF1F-4A1D-8654-C10F82520431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{91FD40A3-EEB3-4237-A9C4-DFA552DA308C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91FD40A3-EEB3-4237-A9C4-DFA552DA308C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91FD40A3-EEB3-4237-A9C4-DFA552DA308C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C506E41-FF1F-4A1D-8654-C10F82520431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C506E41-FF1F-4A1D-8654-C10F82520431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C506E41-FF1F-4A1D-8654-C10F82520431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C506E41-FF1F-4A1D-8654-C10F82520431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
