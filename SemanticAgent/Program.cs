@@ -44,7 +44,7 @@ namespace SemanticAgent
 
                     //services.AddHostedService<Worker>();
                     //services.AddHostedService<AgentWorker>();
-                    services.AddHostedService<MultiAgentWorker>();
+                    services.AddHostedService<DynamicAgentWorker>();
                 }).Build()
                 .Run();
         }

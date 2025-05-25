@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace SemanticAgent.Workers
 {
-    public class MultiAgentWorker : BackgroundService
+    public class DynamicAgentWorker : BackgroundService
     {
         private readonly DynamicAgent agent;
 
-        public MultiAgentWorker(DynamicAgent agent)
+        public DynamicAgentWorker(DynamicAgent agent)
         {
             this.agent = agent;
         }
