@@ -12,7 +12,7 @@ namespace SemanticAgent.Plugins
     public class EmailPlugin
     {
         [KernelFunction]
-        [Description("Sends an Email using provided recipient using email provided by StaffLookupPlugin plugin")]
+        [Description("Sends an Email using provided details using email provided by StaffLookupPlugin plugin")]
         public string SendEmail(EmailModel email)
         {
             string msg = $"** ACTION TAKEN ** Email sent to {email.To} from {email.From}";
