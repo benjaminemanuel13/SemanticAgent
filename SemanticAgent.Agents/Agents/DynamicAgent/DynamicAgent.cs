@@ -37,6 +37,7 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
 
             return result.ToString();
         }
+
         protected override void AddPlugins()
         {
             foreach (var plugin in plugins)
@@ -96,15 +97,11 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
                 });
 
             string prompt = "From the following list of plugins, which ones will I need to fulful this query: '" + message + "'\r\n\r\n";
-            prompt += "Plugins:\r\n";
-
-            prompt += "\r\n";
+            prompt += "Plugins:\r\n\r\n";
 
             foreach (var lookup in lookups) {
-                prompt += lookup.Type + ", " + lookup.Description + "\r\n";
+                prompt += lookup.Type + ", " + lookup.Description + "\r\n\r\n";
             }
-
-            prompt += "\r\n";
 
             prompt += "Only give me the Types of the plugins as a comma seperated list";
 
