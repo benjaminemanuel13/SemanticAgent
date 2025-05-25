@@ -31,12 +31,12 @@ namespace SemanticAgent
                     services.AddTransient<EmailAgent>();
                     services.AddTransient<EmailToolDefinition>();
 
-                    services.AddTransient<MultiAgentService>();
+                    //// Doesn't work - services.AddTransient<MultiAgentService>();
 
-                    //services.AddHostedService<Worker>();
+                    services.AddHostedService<Worker>();
                     //services.AddHostedService<AgentWorker>();
 
-                    services.AddHostedService<MultiAgentWorker>();
+                    //// Doesn't work - services.AddHostedService<MultiAgentWorker>();
                 }).Build()
                 .Run();
         }

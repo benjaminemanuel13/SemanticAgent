@@ -1,4 +1,5 @@
 ﻿using Microsoft.SemanticKernel;
+using SemanticAgent.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +13,13 @@ namespace SemanticAgent.Plugins
     {
         [KernelFunction]
         [Description("Sends an Email using provided recipient using email provided by StaffLookupPlugin plugin")]
-        public string SendEmail(string recipient)
-        { 
+        public string SendEmail(EmailModel email)
+        {
+            string msg = $"** ACTION TAKEN ** Email sent to {email.To} from {email.From}";
+
             // Simulate sending an email
-            return $"Email sent to {recipient}";
+            Console.WriteLine(msg);
+            return msg;
         }
     }
 }
