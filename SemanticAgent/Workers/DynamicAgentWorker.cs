@@ -38,6 +38,8 @@ namespace SemanticAgent.Workers
                 else
                 {
                     var result = await agent.Ask(input);
+
+                    Console.WriteLine($"Result: {result}");
                 }
             }
         }
