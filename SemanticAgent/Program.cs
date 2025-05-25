@@ -42,6 +42,8 @@ namespace SemanticAgent
                     services.AddTransient<EmailAgent>();
                     services.AddTransient<EmailToolDefinition>();
 
+                    // Uncomment the worker you want to run...
+
                     //services.AddHostedService<Worker>();
                     //services.AddHostedService<AgentWorker>();
                     services.AddHostedService<DynamicAgentWorker>();
