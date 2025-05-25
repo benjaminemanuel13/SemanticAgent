@@ -6,6 +6,7 @@ using SemanticAgent.Agents.Agents.SingleAgent;
 using SemanticAgent.Agents.ToolDefinitions;
 using SemanticAgent.Business.Interfaces;
 using SemanticAgent.Business.Services;
+using SemanticAgent.Business.Services.MultiAgent;
 using SemanticAgent.Common.ToolModels;
 using SemanticAgent.Workers;
 using System;
@@ -30,7 +31,12 @@ namespace SemanticAgent
                     services.AddTransient<EmailAgent>();
                     services.AddTransient<EmailToolDefinition>();
 
-                    services.AddHostedService<AgentWorker>();
+                    services.AddTransient<MultiAgentService>();
+
+                    //services.AddHostedService<Worker>();
+                    //services.AddHostedService<AgentWorker>();
+
+                    services.AddHostedService<MultiAgentWorker>();
                 }).Build()
                 .Run();
         }

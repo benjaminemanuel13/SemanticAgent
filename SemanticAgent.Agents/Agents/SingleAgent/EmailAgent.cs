@@ -31,6 +31,7 @@ namespace SemanticAgent.Agents.Agents.SingleAgent
             PersistentAgentsClient client = new(projectEndpoint, new DefaultAzureCredential());
 
             EmailToolModel model = new EmailToolModel();
+
             EmailToolDefinition emailTool = new EmailToolDefinition(model);
 
             PersistentAgent agent = client.Administration.CreateAgent(

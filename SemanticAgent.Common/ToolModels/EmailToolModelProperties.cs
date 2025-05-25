@@ -8,7 +8,6 @@ namespace SemanticAgent.Common.ToolModels
 {
     public class EmailToolModelProperties
     {
-
         public ToolProperty to { get; set; }
         public ToolProperty subject { get; set; }
         public ToolProperty body { get; set; }
