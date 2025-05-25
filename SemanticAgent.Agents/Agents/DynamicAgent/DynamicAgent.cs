@@ -25,6 +25,9 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
             this.svc = svc;
         }
 
+        // A good question to ask is: send an email from john doe to jane smith subject "Hello" body "Hello"
+        // this will lookup the email addresses in the StaffLookup plugin and send the email using the EmailSender plugin.
+
         public override async Task<string> Ask(string question)
         {
             plugins = DetermineAgents(question, Directory.GetCurrentDirectory());
@@ -73,23 +76,26 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
 
                             foreach(var method in type.GetMethods())
                             {
-                                var att = method.GetCustomAttributes(typeof(DescriptionAttribute), false)
+                                var description = method.GetCustomAttributes(typeof(DescriptionAttribute), false)
                                     .FirstOrDefault() as DescriptionAttribute;
-                                var ker = method.GetCustomAttributes(typeof(KernelFunctionAttribute), false)
+                                var kernelFunction = method.GetCustomAttributes(typeof(KernelFunctionAttribute), false)
                                     .FirstOrDefault();
 
-                                if (att != null && ker != null)
+                                if (description != null && kernelFunction != null)
                                 {
                                     var ass = file;
                                     var thistype = type;
 
-                                    lookups.Add(new PluginLookup()
+                                    if (!lookups.Any(x => x.Type == thistype.FullName && x.Method == method.Name))
                                     {
-                                        AssemblyPath = file,
-                                        Description = att.Description,
-                                        Type = thistype.FullName,
-                                        Method = method.Name
-                                    });
+                                        lookups.Add(new PluginLookup()
+                                        {
+                                            AssemblyPath = file,
+                                            Description = description.Description,
+                                            Type = thistype.FullName,
+                                            Method = method.Name
+                                        });
+                                    }
                                 }
                             }
                         }   
