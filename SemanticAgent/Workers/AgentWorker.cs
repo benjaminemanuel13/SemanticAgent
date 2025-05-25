@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
-using SemanticAgent.Agents.Agents;
+using SemanticAgent.Agents.Agents.SingleAgent;
 using SemanticAgent.Business.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent
+namespace SemanticAgent.Workers
 {
     public class AgentWorker : BackgroundService
     {
@@ -37,9 +37,6 @@ namespace SemanticAgent
                 else
                 {
                     email.Run(input);
-                    //var res = await agent.Ask(input);
-
-                    //Console.WriteLine(res + "\r\n");
                 }
             }
         }

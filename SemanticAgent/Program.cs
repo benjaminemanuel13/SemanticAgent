@@ -2,11 +2,12 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
-using SemanticAgent.Agents.Agents;
+using SemanticAgent.Agents.Agents.SingleAgent;
 using SemanticAgent.Agents.ToolDefinitions;
 using SemanticAgent.Business.Interfaces;
 using SemanticAgent.Business.Services;
 using SemanticAgent.Common.ToolModels;
+using SemanticAgent.Workers;
 using System;
 
 namespace SemanticAgent
