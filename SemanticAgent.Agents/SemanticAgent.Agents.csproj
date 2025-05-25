@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.0.0" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.54.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SemanticAgent.Common\SemanticAgent.Common.csproj" />
+    <ProjectReference Include="..\SemanticAgent.Plugins\SemanticAgent.Plugins.csproj" />
   </ItemGroup>
 
 </Project>

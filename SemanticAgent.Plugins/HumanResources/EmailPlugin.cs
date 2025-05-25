@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Plugins
+namespace SemanticAgent.Plugins.HumanResources
 {
-    public class EmailPlugin
+    public class EmailPlugin : IPlugin
     {
         [KernelFunction]
         [Description("Sends an Email using provided details using email provided by StaffLookupPlugin plugin")]

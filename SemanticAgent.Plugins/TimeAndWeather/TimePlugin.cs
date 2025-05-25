@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Plugins
+namespace SemanticAgent.Plugins.TimeAndWeather
 {
-    public class TimePlugin
+    public class TimePlugin : IPlugin
     {
         [KernelFunction]
         [Description("Retrieves the current time in UTC")]

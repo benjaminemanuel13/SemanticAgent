@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Plugins
+namespace SemanticAgent.Plugins.HumanResources
 {
-    public class StaffLookupPlugin
+    public class StaffLookupPlugin : IPlugin
     {
         [KernelFunction]
         [Description("Retrieves the provided users details")]

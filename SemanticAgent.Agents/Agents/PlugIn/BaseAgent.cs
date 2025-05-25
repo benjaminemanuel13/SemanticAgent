@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Business.Services.FunctionCall
+namespace SemanticAgent.Agents.FunctionCall
 {
     public abstract class BaseAgent : IAgent
     {
@@ -17,10 +17,12 @@ namespace SemanticAgent.Business.Services.FunctionCall
 
         protected Kernel kernel;
 
-        public BaseAgent()
+        public BaseAgent(bool addPlugins = false)
         {
             kernel = GetKernel();
-            AddPlugins();
+
+            if(addPlugins) 
+                AddPlugins();
         }
 
         private Kernel GetKernel()

@@ -14,4 +14,19 @@
     <ProjectReference Include="..\SemanticAgent.Common\SemanticAgent.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="HumanResources\EmailPlugin.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="HumanResources\StaffLookupPlugin.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="TimeAndWeather\TimePlugin.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="TimeAndWeather\WeatherPlugin.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>

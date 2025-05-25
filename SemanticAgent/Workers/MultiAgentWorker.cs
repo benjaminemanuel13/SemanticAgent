@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using SemanticAgent.Agents.Agents.MultiAgent;
 using SemanticAgent.Agents.Agents.SingleAgent;
 using SemanticAgent.Business.Services.MultiAgent;
 using System;
@@ -11,11 +12,11 @@ namespace SemanticAgent.Workers
 {
     public class MultiAgentWorker : BackgroundService
     {
-        private readonly MultiAgentService svc;
+        private readonly DynamicAgent agent;
 
-        public MultiAgentWorker(MultiAgentService svc)
+        public MultiAgentWorker(DynamicAgent agent)
         {
-            this.svc = svc;
+            this.agent = agent;
         }
 
         protected async override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -36,7 +37,7 @@ namespace SemanticAgent.Workers
                 }
                 else
                 {
-                    svc.Run(input);
+                    var result = await agent.Ask(input);
                 }
             }
         }

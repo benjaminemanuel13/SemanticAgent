@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Plugins
+namespace SemanticAgent.Plugins.TimeAndWeather
 {
-    public class WeatherPlugin
+    public class WeatherPlugin : IPlugin
     {
         [KernelFunction]
         [Description("Gets the current weather for the specified city")]

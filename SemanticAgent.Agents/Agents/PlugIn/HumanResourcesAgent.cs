@@ -1,17 +1,17 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using SemanticAgent.Plugins;
+using SemanticAgent.Plugins.HumanResources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Business.Services.FunctionCall
+namespace SemanticAgent.Agents.FunctionCall
 {
-    public class TimeAndWeatherAgent : BaseAgent
+    public class HumanResourcesAgent : BaseAgent
     {
-        public TimeAndWeatherAgent() : base() { }
+        public HumanResourcesAgent() : base(true) { }
 
         public override async Task<string> Ask(string question)
         {
@@ -21,11 +21,10 @@ namespace SemanticAgent.Business.Services.FunctionCall
 
             return result.ToString();
         }
-
         protected override void AddPlugins()
         {
-            kernel.ImportPluginFromType<TimePlugin>();
-            kernel.ImportPluginFromType<WeatherPlugin>();
+            kernel.ImportPluginFromType<EmailPlugin>();
+            kernel.ImportPluginFromType<StaffLookupPlugin>();
         }
     }
 }
