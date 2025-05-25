@@ -19,3 +19,8 @@ Prompt I gave:
 
 Result: 
 ![image](https://github.com/user-attachments/assets/f7961992-b428-4022-a1c4-17133fae92ee) 
+
+
+** UPDATE **
+
+Have added PesistentAgent with Function Calling capability though I think Semantic Kernel style Agents with plugins is better.
