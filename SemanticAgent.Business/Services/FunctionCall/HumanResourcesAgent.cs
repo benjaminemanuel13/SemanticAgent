@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Business.Services
+namespace SemanticAgent.Business.Services.FunctionCall
 {
-    public class TimeAndWeatherAgent : BaseAgent
+    public class HumanResourcesAgent : BaseAgent
     {
-        public TimeAndWeatherAgent() : base() { }
-
+        public HumanResourcesAgent() : base()
+        {
+        }
         public override async Task<string> Ask(string question)
         {
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
@@ -21,11 +22,10 @@ namespace SemanticAgent.Business.Services
 
             return result.ToString();
         }
-
         protected override void AddPlugins()
         {
-            kernel.ImportPluginFromType<TimePlugin>();
-            kernel.ImportPluginFromType<WeatherPlugin>();
+            kernel.ImportPluginFromType<EmailPlugin>();
+            kernel.ImportPluginFromType<StaffLookupPlugin>();
         }
     }
 }

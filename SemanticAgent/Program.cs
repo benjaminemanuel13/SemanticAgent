@@ -5,7 +5,7 @@ using Microsoft.SemanticKernel;
 using SemanticAgent.Agents.Agents.SingleAgent;
 using SemanticAgent.Agents.ToolDefinitions;
 using SemanticAgent.Business.Interfaces;
-using SemanticAgent.Business.Services;
+using SemanticAgent.Business.Services.FunctionCall;
 using SemanticAgent.Business.Services.MultiAgent;
 using SemanticAgent.Common.ToolModels;
 using SemanticAgent.Workers;

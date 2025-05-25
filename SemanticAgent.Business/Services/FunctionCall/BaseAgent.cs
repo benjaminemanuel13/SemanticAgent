@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SemanticAgent.Business.Services
+namespace SemanticAgent.Business.Services.FunctionCall
 {
     public abstract class BaseAgent : IAgent
     {
