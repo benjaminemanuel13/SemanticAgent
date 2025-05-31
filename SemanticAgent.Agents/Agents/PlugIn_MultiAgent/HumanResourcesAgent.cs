@@ -1,5 +1,6 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
+using OpenAI.Chat;
 using SemanticAgent.Plugins.HumanResources;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,26 @@ namespace SemanticAgent.Agents.FunctionCall
     {
         public HumanResourcesAgent() : base(true) { }
 
-        public override async Task<string> Ask(string question)
+        public override async Task<string> Ask(string question, Action<string> del = null)
         {
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
 
-            FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+            if (del == null)
+            {
+                FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+                return result.ToString();
+            }
+            else
+            {
+                var chat = kernel.InvokePromptStreamingAsync(question, new(executionSettings));
 
-            return result.ToString();
+                await foreach (StreamingKernelContent completionUpdate in chat)
+                {
+                    del(completionUpdate.ToString());
+                }
+
+                return null;
+            }
         }
         protected override void AddPlugins()
         {

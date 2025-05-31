@@ -35,7 +35,7 @@ namespace SemanticAgent.Agents.FunctionCall
             return kernel;
         }
 
-        public abstract Task<string> Ask(string question);
+        public abstract Task<string> Ask(string question, Action<string> del = null);
 
         protected abstract void AddPlugins();
     }

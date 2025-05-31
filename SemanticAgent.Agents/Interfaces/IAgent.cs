@@ -8,6 +8,6 @@ namespace SemanticAgent.Business.Interfaces
 {
     public interface IAgent
     {
-        Task<string> Ask(string question);
+        Task<string> Ask(string question, Action<string> del = null);
     }
 }

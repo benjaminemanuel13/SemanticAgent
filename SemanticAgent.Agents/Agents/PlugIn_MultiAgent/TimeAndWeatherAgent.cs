@@ -13,7 +13,7 @@ namespace SemanticAgent.Agents.FunctionCall
     {
         public TimeAndWeatherAgent() : base(true) { }
 
-        public override async Task<string> Ask(string question)
+        public override async Task<string> Ask(string question, Action<string> del = null)
         {
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
 
