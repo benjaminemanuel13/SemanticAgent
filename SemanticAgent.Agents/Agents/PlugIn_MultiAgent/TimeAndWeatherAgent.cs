@@ -17,9 +17,22 @@ namespace SemanticAgent.Agents.FunctionCall
         {
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
 
-            FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+            if (del == null)
+            {
+                FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+                return result.ToString();
+            }
+            else
+            {
+                var chat = kernel.InvokePromptStreamingAsync(question, new(executionSettings));
 
-            return result.ToString();
+                await foreach (StreamingKernelContent completionUpdate in chat)
+                {
+                    del(completionUpdate.ToString());
+                }
+
+                return null;
+            }
         }
 
         protected override void AddPlugins()

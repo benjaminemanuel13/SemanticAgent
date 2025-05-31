@@ -28,7 +28,7 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
         // A good question to ask is: send an email from john doe to jane smith subject "Hello" body "Hello"
         // this will lookup the email addresses in the StaffLookup plugin and send the email using the EmailSender plugin.
 
-        public override async Task<string> Ask(string question)
+        public override async Task<string> Ask(string question, Action<string> del = null)
         {
             plugins = DetermineAgents(question, Directory.GetCurrentDirectory());
 
@@ -36,9 +36,22 @@ namespace SemanticAgent.Agents.Agents.MultiAgent
 
             OpenAIPromptExecutionSettings executionSettings = new() { ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions };
 
-            FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+            if (del == null)
+            {
+                FunctionResult result = await kernel.InvokePromptAsync(question, new(executionSettings));
+                return result.ToString();
+            }
+            else
+            {
+                var chat = kernel.InvokePromptStreamingAsync(question, new(executionSettings));
 
-            return result.ToString();
+                await foreach (StreamingKernelContent completionUpdate in chat)
+                {
+                    del(completionUpdate.ToString());
+                }
+
+                return null;
+            }
         }
 
         protected override void AddPlugins()

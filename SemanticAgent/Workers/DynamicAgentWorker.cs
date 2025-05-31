@@ -37,7 +37,7 @@ namespace SemanticAgent.Workers
                 }
                 else
                 {
-                    var result = await agent.Ask(input);
+                    var result = await agent.Ask(input, Console.Write);
 
                     Console.WriteLine($"Result: {result}");
                 }
